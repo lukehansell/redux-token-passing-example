@@ -35,12 +35,6 @@ export default WrappedComponent => {
     constructor (props) {
       super(props)
       this.reduxStore = getOrCreateStore(props.initialReduxState)
-      
-      if (!isServer && window.localStorage) {
-        this.reduxStore.subscribe(() => {
-          window.localStorage.setItem('__APP_STATE__', JSON.stringify(this.reduxStore.getState()))
-        })
-      }
     }
     
     render () {
