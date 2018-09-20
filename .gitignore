@@ -44,3 +44,4 @@ typings/
 .next
 
 data/settings.js
+next.config.js
