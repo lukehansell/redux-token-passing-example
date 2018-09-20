@@ -1,14 +1,14 @@
 import withLoginAction from '../hocs/withLoginAction'
+import withLoggedInFlag from '../hocs/withLoggedInFlag'
 
 import LoginButton from '../components/LoginButton'
-import LoggedInSwitch from '../components/LoggedInSwitch'
 
 const ActiveLoginButton = withLoginAction(LoginButton)
 
-const Index = () => (
-  <LoggedInSwitch>
-    {(isLoggedIn) => isLoggedIn ? <div>Hi</div> : <ActiveLoginButton />}
-  </LoggedInSwitch>
+const Index = ({ isLoggedIn }) => (
+  <div>
+    {isLoggedIn ? <div>Hi</div> : <ActiveLoginButton />}
+  </div>
 )
 
-export default Index
+export default withLoggedInFlag(Index)
